@@ -1,6 +1,5 @@
 'use strict';
 
-
 // Utility Methods
 // ---------------
 const VALUES={
@@ -80,22 +79,15 @@ class NotAPositiveIntegerError extends NotAnIntegerError {}
 
 
 /**
- * Converts a number in the 0-25 range into
- * an A-Z character
+ * Converts a number into
+ * character
  *
  * @param  {number} num
  * @return {string}
  */
 const numToChar = (num) => {
-    var k=-1;
-    for (var i in VALUES){
-        if(VALUES[i]==num){
-            k=i;
-            break;
-        }
-    } 
-    return k ;
-};
+    return Object.keys(VALUES).find(key=>VALUES[key]===num);
+  };
 
 
 /**
@@ -120,6 +112,9 @@ const charToNum = (char) => {
   return VALUES[char];
 }
 
+const stringToNumArray = (string) => {
+    return string.split('').map(charToNum);
+  };
 
 /**
  * Does a Postive Mod (result is always a positive integer)
@@ -233,6 +228,7 @@ const areCoprime = (a, b) => {
 }
 
 
+  
 
 // Export Modules
 // --------------
@@ -248,6 +244,7 @@ module.exports = {
   charToNum,
   numArrayToString,
   bringInRange,
+  stringToNumArray,
 
   gcd,
   multiplicativeInverse,

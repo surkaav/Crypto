@@ -1,0 +1,139 @@
+
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<script type="text/javascript" >
+//alert('hi')
+
+//var attempt = 3; // Variable to count number of attempts.
+// Below function Executes on click of login button.
+function verifyNull(){
+var username = document.getElementById("username").value;
+var password = document.getElementById("password").value;
+if ( username == "pranesh" && password == "123"){
+
+    //  alert ("Login successfully");
+window.location = "new";
+ // Redirecting to other page.
+return false;
+}
+else{
+
+ // document.getElementById("errorMsg");
+      //alert('invalid');
+      document.getElementById("pr").innerHTML="Invalid username or password";
+
+}
+}
+</script>
+
+<head>
+<meta charset="utf-8" />
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
+
+</head>
+<style>
+body{
+  /* background-image: url("img.jpg"); */
+	background-color: black;
+	background-repeat: no-repeat;
+	background-position: center;
+/*	background-image-size:100px 100px
+*/}
+
+.ff{
+	box-sizing: content-box;
+	width: 300px;
+	height: 280px;
+	padding: 30px;
+	border: 10px solid white;
+	margin: 100px 10px 100px 950px;
+  background-color: rgba(255, 255, 255, 0.7);
+
+}
+.ff{
+	margin: 90px 100px 100px 560px;
+	text-align: center;
+}
+
+.q{
+  flood-color: white;
+}
+
+
+
+
+.button{
+	background-color: yellow; /* Green */
+ border: none;
+ color: black;
+ padding: 10px;
+ text-align: center;
+ text-decoration: none;
+ display: inline-block;
+ font-size: 12px;
+ margin: 4px 2px;
+ cursor: pointer;
+ border-radius: 50%;
+
+}
+.he{
+  text-align: center;
+  color: yellow;
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: yellow;
+  color: black;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+
+</style>
+<body background="">
+
+
+
+
+
+
+<div>
+  <h1 class="he"><i class="fas fa-lock" style="font-size:48px;color:red;"></i>
+CRYPTO SYSTEM</h1>
+<form action="/submit-student-data" method="post" onsubmit="return verifyNull()">
+
+  <div class="ff">
+    <div class="h"><b> LOGIN</b></div><br>
+
+   <input id="username" type="text" name="name" placeholder="USERNAME" required><br><br>
+  <div  class="tooltip"> <input id="password" type="password" name="password" placeholder="PASSWORD" required>  <span class="tooltiptext">Password must contain 8 characters</span><br><br></div>
+<p id="pr"></p>
+
+     <input type = "submit" value = "Submit" class="button" onClick = "verifyNull();"/>   <i class="fas fa-key" style="font-size:20px;color:red;"></i>
+
+        <p id="q"><a href="reg">Register</a></p>
+      </div>
+
+</form>
+
+</div>
+
+</body></html>

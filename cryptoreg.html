@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <script>
+            function validation()  {
+              alert("hi")
+
+                var password=document.getElementById("password").value;
+                var checkpassword=document.getElementById("passwordcheck").value;
+                var username=document.getElementById("username").value;
+
+
+
+                if(password==""){
+                    document.getElementById("pr").innerHTML="Enter password";
+                    return false;
+                }
+
+                if(checkpassword==""){
+                    document.getElementById("pr").innerHTML="Enter checkpassword";
+                    return false;
+                }
+
+
+
+
+                if(username==""){
+                    document.getElementById("pr").innerHTML="Enter Username";
+                    return false;
+                }
+                if(password.length<6 || password.length>16)
+                {
+                    document.getElementById("pr").innerHTML="Enter valid Password";
+                    return false;
+                }
+
+
+
+
+
+               if(password!=checkpassword)
+               {
+                   document.getElementById("pr").innerHTML="The Passwords dont match";
+                   return false;
+               }
+else{
+
+
+
+window.location = "new"}
+            }
+    </script>
+    <style>
+        body{
+  background-color: black;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.ff{
+	box-sizing: content-box;
+	width: 300px;
+	height: 280px;
+	padding: 30px;
+	border: 10px solid white;
+	margin: 100px 10px 100px 950px;
+  background-color: rgba(255, 255, 255, 0.7);
+
+}
+.ff{
+	margin: 90px 100px 100px 560px;
+	text-align: center;
+}
+.h{
+    color: black;
+}
+h1{
+text-align: center;
+color: yellow}
+
+.button{
+	background-color: yellow; /* Green */
+ border: none;
+ color: black;
+ padding: 10px;
+ text-align: center;
+ text-decoration: none;
+ display: inline-block;
+ font-size: 12px;
+ margin: 4px 2px;
+ cursor: pointer;
+ border-radius: 50%;
+
+}
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: yellow;
+  color: black;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+
+    </style>
+    </head>
+
+
+
+    <body background="">
+       <h1>CRYPTO SYSTEM</h1>
+       <form action="/new" method="post" onsubmit="return validation()">
+       <div class="ff">
+       <div class="h">REGISTER</div><br>
+
+
+        <input id="username" type="text" name="name" placeholder="USERNAME" required><br><br>
+
+
+        <div  class="tooltip">  <input id="password" type="password" name="password" pattern = "[a-zA-Z0-9!@#$*_|]{6,16}"  placeholder=PASSWORD required> <span class="tooltiptext">Password must contain 8 characters</span><br><br></div><br><br>
+
+        <input id="passwordcheck" type="password" name="password" placeholder="Confirm PASSWORD" required><br><br>
+
+
+         <p><input type="Submit" class="button" value="submit" name="Submit" ><br>
+            <input type="reset" value="Reset" name="Reset">
+        </p>
+
+        <p id="pr"></p>
+        <a href="can">CANCEL</a>
+</div>
+
+       </form>
+    </body>
+</html>
