@@ -1,6 +1,6 @@
 'use strict';
-import { validateIntegers, areCoprime, stringToNumArray, bringInRange, numArrayToString } from './utils';
 
+const utils=require('./utils');
 
 const Affine = {
   /**
@@ -13,9 +13,9 @@ const Affine = {
    * @return {string} ciphertext
    */
   encrypt: (plaintext, keyA, keyB) => {
-    validateIntegers(keyA, keyB);
+    utils.validateIntegers(keyA, keyB);
 
-    if (!areCoprime(keyA, 68))
+    if (!utils.areCoprime(keyA, 68))
       throw new RangeError(`"${keyA}" is not Co-Prime with 68`);
 
     if (keyB < 0 || keyB > 67)
@@ -25,10 +25,10 @@ const Affine = {
     return plaintext
       .replace(/\ +/g, ' ')
       .split(' ')
-      .map((s)  => stringToNumArray(s))
+      .map((s)  => utils.stringToNumArray(s))
       .map((na) => na.map((n) => (n * keyA) + keyB))
-      .map((na) => na.map((n) => bringInRange(n)))
-      .map((na) => numArrayToString(na))
+      .map((na) => na.map((n) => utils.bringInRange(n)))
+      .map((na) => utils.numArrayToString(na))
       .join(' ');
   }
 };
