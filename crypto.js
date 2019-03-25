@@ -2,7 +2,7 @@
 var express = require('express');
 var app = express();
 const af=require('./affine_cipher');
-
+const per=require('./perm');
 var bodyParser = require("body-parser");
 app.use(bodyParser.urlencoded({ extended: false }));
 
@@ -32,9 +32,24 @@ app.post('/new', function (req, res) {
 }
 
   const crypt={
-      login:(pwd,len)=>{
+      register:(pwd,len)=>{
           var ka=k.key(len);
-          af.encrypt(pwd,ka,b);
+          var e1=af.encrypt(pwd,ka,b);
+          var e=per.transposition(e1,len,err);
+          if(err){
+            console.log(err);
+            
+        }
+      },
+      login:(pwd,len)=>{
+        var ka=k.key(len);
+        var e1=af.encrypt(pwd,ka,b);
+        var e=per.transposition(e1,len,err);
+        if(err){
+            console.log(err);
+
+        }
+        /*  to do compare database*/
       }
 }
   
