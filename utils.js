@@ -145,7 +145,7 @@ const bringInRange = (num) => {
  * @param  {any}
  * @return {boolean}
  */
-const validateIntegers = (t, ...terms) => {
+const validateIntegers = (t,terms) => {
   const isInteger = (term) => {
     if (typeof term === 'number' && (term % 1) === 0)
       return true;
@@ -191,7 +191,10 @@ const xgcd = (a, b) => {
 
   } else {
     let x, y, d;
-    [x, y, d] = xgcd(b, a % b);
+    var arr = xgcd(b, a % b);
+    x=arr[0]
+    y=arr[1]
+    d=arr[2]
 
     return [y, x - y * Math.floor(a/b), d];
   }
@@ -249,6 +252,5 @@ module.exports = {
   gcd,
   multiplicativeInverse,
   areCoprime,
-  validateIntegers,
-  cleanString
+  validateIntegers
 };
