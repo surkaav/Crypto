@@ -1,6 +1,6 @@
 'use strict';
-
 const utils=require('./utils');
+
 
 const Affine = {
   /**
@@ -22,7 +22,7 @@ const Affine = {
       throw new RangeError(`"${keyB}" is not between 0-67`);
 
 
-    return plaintext
+    var text= plaintext
       .replace(/\ +/g, ' ')
       .split(' ')
       .map((s)  => utils.stringToNumArray(s))
@@ -30,8 +30,10 @@ const Affine = {
       .map((na) => na.map((n) => utils.bringInRange(n)))
       .map((na) => utils.numArrayToString(na))
       .join(' ');
+      console.log(text);
+      return text;
   }
 };
 
 
-export default Affine;
+module.exports=Affine;
